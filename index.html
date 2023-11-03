@@ -4,11 +4,147 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Test</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+  
+  <title>Quiz App</title>
+<style>
+body{
+background: wheat;
+}
+#container-1{
+width: 95%;
+height: 600px;
+margin: 0 auto;
+text-align: center;
+background: white;
+padding-top: 10px;
+border-radius: 5px;
+box-shadow: 8px 10px 16px rgba(0,0,0,0.3);
+}
+.title{
+text-align: center;
+color:dodgerblue;
+}
+
+#q_in{
+width: 80%;
+height: 30%;
+border: 2px solid hsla(35, 93%, 51%, 0.45);
+border-radius: 5px;
+text-align: center;
+padding-top: 20px; 
+font-family: monospace;
+font-weight: 550;
+transition: .2s;
+}
+
+.input:hover,#q_in:hover,#c_o:hover, button:hover, #save:hover{
+border: 2px solid dodgerblue;
+outline: none;
+}
+
+.input{
+width: 50%;
+height: 5%;
+margin: 5px;
+display: inline-block;
+border: 2px solid hsla(35, 93%, 51%, 0.45);
+text-align: center;
+transition: .2s;
+border-radius: 5px;
+font-family: monospace;
+}
+h2,h4{
+color: dodgerblue;
+}
+.c_o{
+display: inline;
+float:left;
+margin-left: 20px;
+}
+#c_o{
+display: inline;
+float:right;
+margin-right: 80px;
+width: 30%;
+height: 30px;
+color: white;
+border: 2px solid dodgerblue;
+background: dodgerblue;
+border-radius: 5px;
+}
+ 
+button{
+width: 100px;
+height: 30px;
+color: white;
+border: 2px solid dodgerblue;
+background: dodgerblue;
+border-radius: 5px;
+}
+
+#prev{
+display: inline;
+float: left;
+}
+#next{
+display: inline;
+float: right;
+}
+#np{
+width: 80%;
+height: 10%;
+text-align: center;
+margin: 0 auto;
+margin-top: 37px;
+background: transparent;
+}
+
+#save{
+right: 5px;
+bottom: 15px;
+position: fixed;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background: dodgerblue;
+border-color:dodgerblue;
+font-size: 20px;
+font-weight: 600;
+color: white;
+
+}
+</style>
 </head>
 
 <body>
-<script src="script.js"></script>
+<h1 class="title">Quiz App</h1>
+<div id="container-1">
+<h2 id="set">Set Question</h2>
+<textarea id="q_in" placeholder="Enter Question">Who invented computer?</textarea>
+<input type="text" placeholder="Option a" class="input"/>
+<input type="text" placeholder="Option b" class="input"/>
+<input type="text" placeholder="Option c"  class="input"/>
+<input type="text" placeholder="Option d" class="input"/><br>
+<h4 class="c_o">Correct option:</h4><br>
+<select id="c_o">
+<option value="">Select..</option>
+<option value="a">a</option>
+<option value="b">b</option>
+<option value="c">c</option>
+<option value="d">d</option>
+</select><br>
+<button id="save">
+<i class="fa fa-floppy-o" aria-hidden="true"></i>
+</button>
+<div id="np">
+<button id="prev">Previous</button>
+<button id="next">Next</button>
+</div>
+
+
+
+<script src="quiz.js"></script>
 </body>
 
 </html>
