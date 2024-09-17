@@ -1,184 +1,197 @@
  <!DOCTYPE html>
-<html>
+ <html>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Quiz App</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
-<style>
-body{
-background: wheat;
-}
-#container-1{
-width: 95%;
-height: 600px;
-margin: 0 auto;
-text-align: center;
-background: white;
-padding-top: 0px;
-border-radius: 5px;
-box-shadow: 8px 10px 16px rgba(0,0,0,0.3);
-}
-.title{
-text-align: center;
-color:dodgerblue;
-}
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Quiz App</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+   <style>
+     body {
+       background: wheat;
+     }
 
-#q_in{
-width: 85%;
-height: 30%;
-border: 4px solid wheat;
-border-radius: 10px;
-text-align: center;
-color: dodgerblue;
-font-family: monospace;
-padding-top: 20px;
-margin-top: 30px;
-font-weight: 700;
-font-size: 15px;
-transition: .2s;
-background: white;
+     #container-1 {
+       width: 95%;
+       height: 600px;
+       margin: 0 auto;
+       text-align: center;
+       background: white;
+       padding-top: 0px;
+       border-radius: 5px;
+       box-shadow: 8px 10px 16px rgba(0, 0, 0, 0.3);
+     }
 
-}
-#set{
-font-size: 30px;
-position: absolute;
-color: #5ED80A;
-transform: translate(95%,5%);
-}
-button:hover{
-border: 2px solid dodgerblue;
-outline: none;
-}
+     .title {
+       text-align: center;
+       color: dodgerblue;
+     }
 
+     #q_in {
+       width: 85%;
+       height: 30%;
+       border: 4px solid wheat;
+       border-radius: 10px;
+       text-align: center;
+       color: dodgerblue;
+       font-family: monospace;
+       padding-top: 20px;
+       margin-top: 30px;
+       font-weight: 700;
+       font-size: 15px;
+       transition: .2s;
+       background: white;
 
-h2,h4{
-color: dodgerblue;
-}
+     }
 
-.button{
-width: 100px;
-height: 30px;
-color: white;
-border: 2px solid dodgerblue;
-background: dodgerblue;
-border-radius: 5px;
-}
+     #set {
+       font-size: 30px;
+       position: absolute;
+       color: #5ED80A;
+       transform: translate(95%, 5%);
+     }
 
-#prev{
-display: inline;
-float: left;
-}
-#next{
-display: inline;
-float: right;
-}
-#np{
-width: 80%;
-height: 10%;
-text-align: center;
-margin: 0 auto;
-margin-top: 55px;
-background: transparent;
-}
-
-.option{
-display: inline;
-float: left;
-width: 30px;
-height: 30px;
-margin-left: 35px;
-border: 2px solid dodgerblue;
-border-radius: 50%;
-color: white;
-margin-top: 0px;
-font-weight: 400;
-background:dodgerblue;
-transition: .3s;
-}
-
-.opt{
-font-family: monospace;
-margin-top: 7px;
-margin-right: 75px;
-}
-.option:hover{
-background: wheat;
-border-color: wheat;
-outline-color: transparent;
-}
+     button:hover {
+       border: 2px solid dodgerblue;
+       outline: none;
+     }
 
 
-#submit{
-position: fixed;
-right: 5%;
-bottom: 3%;
-font-size: 15px;
-background: dodgerblue;
-border: 2px solid dodgerblue;
-color: white;
-text-align: center;
-}
+     h2,
+     h4 {
+       color: dodgerblue;
+     }
 
-#submit > i{
-font-size: 20px;
-color: dodgerblue;
-}
+     .button {
+       width: 100px;
+       height: 30px;
+       color: white;
+       border: 2px solid dodgerblue;
+       background: dodgerblue;
+       border-radius: 5px;
+     }
 
-.result{
-position: fixed;
-top: 30%;
-left: 12%;
-width: 75%;
-height: 170px;
-text-align: center;
-border-radius: 10px;
-border: 2px solid wheat;
-background: white;
-transition: .3s;
-opacity: 0;
-}
-.result > i{
- margin-top: 10px;
-font-size: 45px;
-color:  #5ED80A;
-}
+     #prev {
+       display: inline;
+       float: left;
+     }
 
-.result > button{
-width: 30%;
-height: 25px;
-border-radius: 5px;
-color: white;
-background: dodgerblue;
-border: 2px solid dodgerblue;
-}
-</style>
+     #next {
+       display: inline;
+       float: right;
+     }
 
-</head>
+     #np {
+       width: 80%;
+       height: 10%;
+       text-align: center;
+       margin: 0 auto;
+       margin-top: 55px;
+       background: transparent;
+     }
 
-<body>
-<h1 class="title">Quiz App</h1>
-<div id="container-1">
-<h4 id="set"><i class="fa fa-question-circle" aria-hidden="true"></i></h4>
-<textarea id="q_in" placeholder="Enter Question" disabled>Loading...</textarea>
-<br><br>
-<button class="option" id="a">A</button><p class="opt"></p><br>
-<button class="option" id="b">B</button><p class="opt"></p><br>
-<button class="option" id="c">C</button><p class="opt"></p><br>
-<button class="option" id="d">D</button><p class="opt"></p>
-<div id="np">
-<button id="prev" class="button">Previous</button>
-<button id="next" class="button">Next</button>
-<button id="submit" class="button">Done</button>
-<div class="result" id="result">
-<i class="fa fa-check-circle"></i>
-<h4 id="info">Congratulations<br>
-  You scored 9 out of 10</h4>
-<button onclick="hideResult()">Ok</button>
-</div>
-</div>
-<script src="script.js"></script>
-</body>
+     .option {
+       display: inline;
+       float: left;
+       width: 30px;
+       height: 30px;
+       margin-left: 35px;
+       border: 2px solid dodgerblue;
+       border-radius: 50%;
+       color: white;
+       margin-top: 0px;
+       font-weight: 400;
+       background: dodgerblue;
+       transition: .3s;
+     }
 
-</html>
+     .opt {
+       font-family: monospace;
+       margin-top: 7px;
+       margin-right: 75px;
+     }
+
+     .option:hover {
+       background: wheat;
+       border-color: wheat;
+       outline-color: transparent;
+     }
+
+
+     #submit {
+       position: fixed;
+       right: 5%;
+       bottom: 3%;
+       font-size: 15px;
+       background: dodgerblue;
+       border: 2px solid dodgerblue;
+       color: white;
+       text-align: center;
+     }
+
+     #submit>i {
+       font-size: 20px;
+       color: dodgerblue;
+     }
+
+     .result {
+       position: fixed;
+       top: 30%;
+       left: 12%;
+       width: 75%;
+       height: 170px;
+       text-align: center;
+       border-radius: 10px;
+       border: 2px solid wheat;
+       background: white;
+       transition: .3s;
+       opacity: 0;
+     }
+
+     .result>i {
+       margin-top: 10px;
+       font-size: 45px;
+       color: #5ED80A;
+     }
+
+     .result>button {
+       width: 30%;
+       height: 25px;
+       border-radius: 5px;
+       color: white;
+       background: dodgerblue;
+       border: 2px solid dodgerblue;
+     }
+   </style>
+
+ </head>
+
+ <body>
+   <h1 class="title">Quiz App</h1>
+   <div id="container-1">
+     <h4 id="set"><i class="fa fa-question-circle" aria-hidden="true"></i></h4>
+     <textarea id="q_in" placeholder="Enter Question" disabled>Loading...</textarea>
+     <br><br>
+     <button class="option" id="a">A</button>
+     <p class="opt"></p><br>
+     <button class="option" id="b">B</button>
+     <p class="opt"></p><br>
+     <button class="option" id="c">C</button>
+     <p class="opt"></p><br>
+     <button class="option" id="d">D</button>
+     <p class="opt"></p>
+     <div id="np">
+       <button id="prev" class="button">Previous</button>
+       <button id="next" class="button">Next</button>
+       <button id="submit" class="button">Done</button>
+       <div class="result" id="result">
+         <i class="fa fa-check-circle"></i>
+         <h4 id="info">Congratulations<br>
+           You scored 9 out of 10</h4>
+         <button onclick="hideResult()">Ok</button>
+       </div>
+     </div>
+     <script src="script.js"></script>
+ </body>
+
+ </html>

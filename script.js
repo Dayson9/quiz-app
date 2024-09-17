@@ -1,18 +1,17 @@
-
- const prev= document.getElementById('prev');
-const nxt= document.getElementById('next')
-const q_in= document.getElementById('q_in')
-const info= document.getElementById('info');
+const prev = document.getElementById('prev');
+const nxt = document.getElementById('next')
+const q_in = document.getElementById('q_in')
+const info = document.getElementById('info');
 const a = document.getElementById("a")
-  const b = document.getElementById("b")
-  const c = document.getElementById("c")
-  const d = document.getElementById("d")
-  
-const opt= ['a', 'b', 'c', 'd'];
-const optionText= document.getElementsByClassName('opt');
-var selected= [];
-var counter= 0;
-const q_o_a =[{ "q": "Who invented computer?", "a": "Alan Turing", "b": "Elon Musk", "c": "Charles Babbage", "d": "Ada Lovelace", "ans": "c" },
+const b = document.getElementById("b")
+const c = document.getElementById("c")
+const d = document.getElementById("d")
+
+const opt = ['a', 'b', 'c', 'd'];
+const optionText = document.getElementsByClassName('opt');
+var selected = [];
+var counter = 0;
+const q_o_a = [{ "q": "Who invented computer?", "a": "Alan Turing", "b": "Elon Musk", "c": "Charles Babbage", "d": "Ada Lovelace", "ans": "c" },
 
   { "q": "In color combination, Green+Blue equals?", "a": "Red", "b": "Cyan", "c": "Orange", "d": "Lightgreen", "ans": "b" },
 
@@ -35,56 +34,56 @@ const q_o_a =[{ "q": "Who invented computer?", "a": "Alan Turing", "b": "Elon Mu
 
 
 
-function toNextQuestion(){
-counter++;
-q_in.innerText= q_o_a[counter].q;
-for(x in optionText){
-optionText[x].innerText= q_o_a[counter][opt[x]];
-}
-}
-
-function toPrevQuestion(){
-counter--;
-q_in.innerText= q_o_a[counter].q;
-for(x in optionText){
-optionText[x].innerText= q_o_a[counter][opt[x]];
-}
+function toNextQuestion() {
+  counter++;
+  q_in.innerText = q_o_a[counter].q;
+  for (x in optionText) {
+    optionText[x].innerText = q_o_a[counter][opt[x]];
+  }
 }
 
-function printResult(el){
-let len= q_o_a.length;
-let score= 0;
-for(i=0; i<len; i++){
-if(selected[i] === q_o_a[i].ans){
-score++; 
-}
-}
-
-el.innerHTML= "Congratulations<br>You scored "+score+" out of "+len;
-result.style.opacity= 1;
+function toPrevQuestion() {
+  counter--;
+  q_in.innerText = q_o_a[counter].q;
+  for (x in optionText) {
+    optionText[x].innerText = q_o_a[counter][opt[x]];
+  }
 }
 
-function hideResult(){
-result.style.opacity= 0; 
+function printResult(el) {
+  let len = q_o_a.length;
+  let score = 0;
+  for (i = 0; i < len; i++) {
+    if (selected[i] === q_o_a[i].ans) {
+      score++;
+    }
+  }
+
+  el.innerHTML = "Congratulations<br>You scored " + score + " out of " + len;
+  result.style.opacity = 1;
+}
+
+function hideResult() {
+  result.style.opacity = 0;
 }
 
 prev.addEventListener('click', toPrevQuestion);
 
 nxt.addEventListener('click', toNextQuestion);
 
-document.body.onload= ()=>{
-q_in.innerText= q_o_a[counter].q;
-for(cc in optionText){
-optionText[cc].innerText= q_o_a[counter][opt[cc]];
-}
+document.body.onload = () => {
+  q_in.innerText = q_o_a[counter].q;
+  for (cc in optionText) {
+    optionText[cc].innerText = q_o_a[counter][opt[cc]];
+  }
 }
 
 submit.onclick = () => printResult(info);
 
-a.onclick = () => selected[counter]='a'
+a.onclick = () => selected[counter] = 'a'
 
-b.onclick = () =>selected[counter]= 'b'
+b.onclick = () => selected[counter] = 'b'
 
-c.onclick= () => selected[counter] = 'c'
+c.onclick = () => selected[counter] = 'c'
 
 d.onclick = () => selected[counter] = 'd'
